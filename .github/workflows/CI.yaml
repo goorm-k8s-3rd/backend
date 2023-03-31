@@ -39,4 +39,4 @@ jobs:
           ECR_REGISTY: ${{ steps.login-ecr.outputs.registry }}
         run: |
           docker build -t ${{ env.REGISTRY }}/${{env.REPOSITORY}}:${{env.IMAGE_TAG}} .
-          budcker push ${{ env.REGISTRY}}/${{env.REPOSITORY}}:${{env.IMAGE_TAG}}
+          docker push ${{ env.REGISTRY}}/${{env.REPOSITORY}}:${{env.IMAGE_TAG}}
