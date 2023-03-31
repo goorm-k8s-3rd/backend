@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,17 +15,30 @@ def get_secret(key, json_path: str = str(BASE_DIR / "secrets.json")):
 
 
 ###### SECRET ######
-KAKAO_API_KEY = get_secret("KEY")
+# KAKAO_API_KEY = get_secret("KEY")
+# DB_OPTION = {
+#     "url": get_secret("DB_URL"),
+#     "user": get_secret("DB_USER"),
+#     "pw": get_secret("DB_PW"),
+#     "database": get_secret("DB_DATABASE"),
+# }
+# AUTH_OPTION = {
+#     "algotithm": get_secret("AUTH_ALGORITHM"),
+#     "key": get_secret("AUTH_KEY"),
+#     "exp": get_secret("AUTH_EXP"),
+# }
+
+KAKAO_API_KEY = os.getenv("KEY")
 DB_OPTION = {
-    "url": get_secret("DB_URL"),
-    "user": get_secret("DB_USER"),
-    "pw": get_secret("DB_PW"),
-    "database": get_secret("DB_DATABASE"),
+    "url": os.getenv("DB_URL"),
+    "user": os.getenv("DB_USER"),
+    "pw": os.getenv("DB_PW"),
+    "database": os.getenv("DB_DATABASE"),
 }
 AUTH_OPTION = {
-    "algotithm": get_secret("AUTH_ALGORITHM"),
-    "key": get_secret("AUTH_KEY"),
-    "exp": get_secret("AUTH_EXP"),
+    "algotithm": os.getenv("AUTH_ALGORITHM"),
+    "key": os.getenv("AUTH_KEY"),
+    "exp": os.getenv("AUTH_EXP"),
 }
 
 ###### CONFIG ######
