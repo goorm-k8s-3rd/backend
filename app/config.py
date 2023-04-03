@@ -30,10 +30,10 @@ def get_secret(key, json_path: str = str(BASE_DIR / "secrets.json")):
 
 KAKAO_API_KEY = os.getenv("KEY")
 DB_OPTION = {
-    "url": os.getenv("DB_URL"),
-    "user": os.getenv("DB_USER"),
-    "pw": os.getenv("DB_PW"),
-    "database": os.getenv("DB_DATABASE"),
+    "url": os.getenv("DB_ADDRESS"),
+    "user": os.getenv("DB_NAME"),
+    "pw": os.getenv("DB_PASSWORD"),
+    "database": os.getenv("DB_DBNAME"),
 }
 AUTH_OPTION = {
     "algotithm": os.getenv("AUTH_ALGORITHM"),
