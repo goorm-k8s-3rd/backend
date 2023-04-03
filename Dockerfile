@@ -1,7 +1,7 @@
-FROM tiangolo/uvicorn-gunicorn:python3.10
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
+FROM python:3.10
+COPY . /app
+COPY ./requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
 EXPOSE 8000
-CMD ["gunicorn"  , "--bind", "0.0.0.0:8080", "main:app"]
+WORKDIR /app
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
