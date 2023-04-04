@@ -104,7 +104,7 @@ async def loginUser(
     user = authenticateUser(form_data.username, form_data.password, db)
     if not user:
         return JSONResponse(status_code=400, content=dict(msg="Login Failed"))
-    token = createToken(user.id, expireDelta=TOKENEXPIRE)
+    token = createToken(user.id, expireDelta=int(TOKENEXPIRE))
     return {"access_token": token, "token_type": "bearer"}
 
 
